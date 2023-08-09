@@ -46,7 +46,7 @@ func dataSourceVersionValidatorRead(ctx context.Context, d *schema.ResourceData,
 	var diags diag.Diagnostics
 
 	// We instantiate a new repository targeting the given path (the .git folder)
-	r, err := git.PlainOpen(".")
+	r, err := git.PlainOpen("/Users/aleksandr.boikov/code/terraform-provider-tag-finder")
 	if err != nil {
 		return diags
 	}
@@ -74,7 +74,7 @@ func dataSourceVersionValidatorRead(ctx context.Context, d *schema.ResourceData,
 	if err != nil {
 		return diags
 	}
-	diags = diag.Errorf(fmt.Sprintf("Tags: %v", array))
+	diags = diag.Errorf(fmt.Sprintf("Tags: %v", tagrefs))
 	return diags
 }
 
